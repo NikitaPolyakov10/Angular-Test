@@ -8,6 +8,11 @@ import { Car } from 'src/app/interface/car';
 })
 export class CarsComponent implements OnInit {
   @Input() carItem!: Car;
+  @Output() onRemove = new EventEmitter();
+
+  onDelete() {
+    this.onRemove.emit(this.carItem.id);
+  }
 
   constructor() {}
 
