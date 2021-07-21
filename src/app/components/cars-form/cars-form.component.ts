@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Car } from 'src/app/interface/car';
 
 @Component({
@@ -8,6 +14,8 @@ import { Car } from 'src/app/interface/car';
 })
 export class CarsFormComponent implements OnInit {
   @Output() onAddCar = new EventEmitter();
+  @ViewChild('inputCarName', { static: true }) inputName: any;
+  @ViewChild('inputCarSpeed') inputSpeed: any;
 
   name = '';
   speed = 0;
@@ -28,7 +36,17 @@ export class CarsFormComponent implements OnInit {
     }
   }
 
+  focusName() {
+    this.inputName.nativeElement.focus();
+  }
+
+  focusSpeed() {
+    this.inputSpeed.nativeElement.focus();
+  }
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.inputName.nativeElement.focus();
+  }
 }
