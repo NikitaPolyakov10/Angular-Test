@@ -9,6 +9,9 @@ export class AppComponent {
   title:string = 'Angular-Test';
   number:number = 20;
   arr:number[] = [1,2,3];
+  counter:number = 0;
+  text:string = '';
+  someText:string = 'some text';
 
   defaultImg:string = '';
 
@@ -25,5 +28,13 @@ export class AppComponent {
 
   showImg() {
     this.defaultImg = this.reactImg;
+  }
+
+  onInput(event:any) {
+    this.text = event.target.value;
+  }
+
+  incrementCounter() {
+    this.counter += 1;
   }
 }

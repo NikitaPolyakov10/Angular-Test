@@ -1,8 +1,8 @@
 <h1>{{ title }}</h1>
 <div>
-  <span>{{ number + 10 }}</span>
+  <span>{{ +number + 10 }}</span>
+  <p>{{ +number }}</p>
   <p>{{ arr }}</p>
-  <span></span>
   <div>
     <br />
     <button *ngIf="!defaultImg" (click)="showImg()">Show img</button>
@@ -11,4 +11,16 @@
       <img *ngIf="defaultImg" [src]="defaultImg" alt="img" />
     </div>
   </div>
+  <input
+    type="text"
+    (keyup.enter)="onInput($event)"
+    [value]="text"
+    placeholder="some text"
+  />
+  <p>{{ text }}</p>
+  <p>{{ counter }}</p>
+  <button (click)="incrementCounter()">Click me</button>
 </div>
+<hr />
+<input type="text" [value]="someText" [(ngModel)]="someText" />
+<p>{{ someText }}</p>
