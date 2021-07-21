@@ -1,7 +1,14 @@
-<input type="text" placeholder="Car name..." [(ngModel)]="name" />
-<input type="text" placeholder="Car speed..." [(ngModel)]="speed" />
+<input type="text" placeholder="Car name..." [(ngModel)]="name" #inputCarName />
+<input
+  type="text"
+  placeholder="Car speed..."
+  [(ngModel)]="speed"
+  #inputCarSpeed
+/>
 <select name="abs" id="abs" [ngStyle]="{ fontSize: '18px' }" [(ngModel)]="abs">
   <option value="true">Has abs</option>
   <option value="false">No abs</option>
 </select>
 <button (click)="addCar()">Add car</button>
+<button (click)="focusName()">Focus on car name</button>
+<button (click)="focusSpeed()">Focus on car speed</button>
