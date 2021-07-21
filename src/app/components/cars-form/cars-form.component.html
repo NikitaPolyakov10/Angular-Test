@@ -1,0 +1,7 @@
+<input type="text" placeholder="Car name..." [(ngModel)]="name" />
+<input type="text" placeholder="Car speed..." [(ngModel)]="speed" />
+<select name="abs" id="abs" [ngStyle]="{ fontSize: '18px' }" [(ngModel)]="abs">
+  <option value="true">Has abs</option>
+  <option value="false">No abs</option>
+</select>
+<button (click)="addCar()">Add car</button>

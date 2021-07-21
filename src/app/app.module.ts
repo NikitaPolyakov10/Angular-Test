@@ -8,6 +8,7 @@ import { PostFormComponent } from './components/post-form/post-form.component';
 import { PostComponent } from './components/post/post.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { CarsContainerComponent } from './components/cars-container/cars-container.component';
+import { CarsFormComponent } from './components/cars-form/cars-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CarsContainerComponent } from './components/cars-container/cars-contain
     PostComponent,
     CarsComponent,
     CarsContainerComponent,
+    CarsFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
