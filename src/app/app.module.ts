@@ -6,19 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { PostComponent } from './components/post/post.component';
+import { CarsComponent } from './components/cars/cars.component';
+import { CarsContainerComponent } from './components/cars-container/cars-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostFormComponent,
-    PostComponent
+    PostComponent,
+    CarsComponent,
+    CarsContainerComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

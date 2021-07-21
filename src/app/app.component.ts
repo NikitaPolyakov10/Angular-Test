@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Car } from './interface/car';
 
 export interface Post {
   title: string;
@@ -9,7 +10,7 @@ export interface Post {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   posts: Post[] = [
@@ -22,8 +23,10 @@ export class AppComponent {
       title: 'Post title 2',
       text: 'Post text 2',
       id: 2,
-    }
-  ]
+    },
+  ];
 
-  title:string = 'Hello world'
+  updatePosts(post: Post) {
+    this.posts.unshift(post);
+  }
 }
