@@ -1,5 +1,5 @@
 <app-cars-form (onAddCar)="updateCars($event)"></app-cars-form>
-<app-cars *ngFor="let car of cars" [carItem]="car">
+<app-cars *ngFor="let car of cars" [carItem]="car" (onRemove)="onRemoveCar($event)">
   <small *ngIf="car.speed > 200; else lowSpeed">Big speed</small>
   <ng-template #lowSpeed>
     <small>Low Speed</small>
