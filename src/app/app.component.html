@@ -1,26 +1,26 @@
-<h1>{{ title }}</h1>
-<div>
-  <span>{{ +number + 10 }}</span>
-  <p>{{ +number }}</p>
-  <p>{{ arr }}</p>
-  <div>
-    <br />
-    <button *ngIf="!defaultImg" (click)="showImg()">Show img</button>
-    <button *ngIf="defaultImg" (click)="changeImg()">Change img</button>
-    <div>
-      <img *ngIf="defaultImg" [src]="defaultImg" alt="img" />
-    </div>
+<h3>Arr:</h3>
+<ul>
+  <li *ngFor="let number of numbers; let i = index">
+    <strong>{{ i + 1 }}</strong
+    >{{ number }}
+  </li>
+</ul>
+<h3>Obj:</h3>
+<!-- <ul>
+  <li *ngFor="let post of obj1">
+    Title: {{ post.title }}, Author: {{ post.author }}
+    <ul>
+      <li *ngFor="let comment of post.comments">
+        Comment Author: {{ comment.name }}, Comment Text: {{ comment.text }}
+      </li>
+    </ul>
+  </li>
+</ul> -->
+<div *ngFor="let post of obj1">
+  Title: {{ post.title }}, <span>Author: {{ post.author }}</span>
+  <div *ngFor="let comment of post.comments">
+    <span>Comment Author: {{ comment.name }}</span
+    >,
+    <span>Comment Text: {{ comment.text }}</span>
   </div>
-  <input
-    type="text"
-    (keyup.enter)="onInput($event)"
-    [value]="text"
-    placeholder="some text"
-  />
-  <p>{{ text }}</p>
-  <p>{{ counter }}</p>
-  <button (click)="incrementCounter()">Click me</button>
 </div>
-<hr />
-<input type="text" [value]="someText" [(ngModel)]="someText" />
-<p>{{ someText }}</p>
