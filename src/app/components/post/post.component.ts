@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/app.component';
 
-
-
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -11,6 +9,7 @@ import { Post } from 'src/app/app.component';
 export class PostComponent implements OnInit {
 
   @Input() post!: Post;
+  @Input() title!: string;
 
   constructor() {
   }

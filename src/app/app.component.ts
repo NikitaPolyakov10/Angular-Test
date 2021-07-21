@@ -24,4 +24,6 @@ export class AppComponent {
       id: 2,
     }
   ]
+
+  title:string = 'Hello world'
 }
