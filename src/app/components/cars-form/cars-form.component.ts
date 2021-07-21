@@ -20,6 +20,7 @@ export class CarsFormComponent implements OnInit {
   name = '';
   speed = 0;
   abs = false;
+  id = 1;
 
   addCar() {
     if (this.name.trim() && this.speed > 0) {
@@ -27,12 +28,14 @@ export class CarsFormComponent implements OnInit {
         name: this.name,
         speed: this.speed,
         abs: this.abs,
+        id: this.id
       };
       this.onAddCar.emit(car);
 
       this.name = '';
       this.speed = 0;
       this.abs = false;
+      this.id = this.id++;
     }
   }
 
