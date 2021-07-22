@@ -1,1 +1,50 @@
-<p>{{ now | date | uppercase | lowercase }}</p>
+<h1>Pipes</h1>
+
+<h2>Numbers:</h2>
+<p>{{ num | number: "1.1-2" }}</p>
+<!-- number округляет число. строкой указываются доп параметры 1(число цифр до запятой).1-2(число цифр после запятой) -->
+
+<h2>Strings:</h2>
+<p>{{ str | uppercase | lowercase | titlecase }}</p>
+<p>{{ str | titlecase | slice: 0:7 }}</p>
+<!-- titlecase делает каждое слово с большой буквы -->
+<!-- slice как и у массива вырезает часть строки, 0:1 указывает, что оставить, а остальное удалится -->
+
+<h2>Date:</h2>
+<p>{{ date | date }}</p>
+<p>{{ date | date: "fullDate" }}</p>
+
+<h2>Float</h2>
+<p>{{ float }}</p>
+<p>{{ float | currency }}</p>
+<p>{{ float | percent }}</p>
+<p>{{ float }}</p>
+
+<h2>Object:</h2>
+<pre>{{ obj }}</pre>
+<pre>{{ obj | json }}</pre>
+
+<h2>Creating pipe</h2>
+<p>{{ 10 | mult }}</p>
+<p>{{ 10 | mult: 3 }}</p>
+<p>{{ 10 | mult: 5 }}</p>
+<p>{{ "Hello world        " | exMarks }}</p>
+<hr />
+<h2>Filter lists</h2>
+<input type="text" placeholder="Search post" [(ngModel)]="search" />
+<div
+  *ngFor="let post of posts | filter: search"
+  [ngStyle]="{
+    border: '1px solid #ccc',
+    padding: '10px',
+    maxWidth: '500px',
+    margin: '10px'
+  }"
+>
+  <h3>{{ post.title }}</h3>
+  <p>{{ post.text }}</p>
+</div>
+<hr />
+<h2>Async pipe</h2>
+<p>After 3 sec: {{ value | async }}</p>
+<p>Now: {{ dateNow | async | date: "HH:mm:ss" }}</p>
