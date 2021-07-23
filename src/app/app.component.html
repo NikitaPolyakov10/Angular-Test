@@ -1,26 +1,13 @@
-<h1>{{ title }}</h1>
+<h1>Services</h1>
 <div>
-  <span>{{ +number + 10 }}</span>
-  <p>{{ +number }}</p>
-  <p>{{ arr }}</p>
-  <div>
-    <br />
-    <button *ngIf="!defaultImg" (click)="showImg()">Show img</button>
-    <button *ngIf="defaultImg" (click)="changeImg()">Change img</button>
-    <div>
-      <img *ngIf="defaultImg" [src]="defaultImg" alt="img" />
-    </div>
-  </div>
-  <input
-    type="text"
-    (keyup.enter)="onInput($event)"
-    [value]="text"
-    placeholder="some text"
-  />
-  <p>{{ text }}</p>
-  <p>{{ counter }}</p>
-  <button (click)="incrementCounter()">Click me</button>
+  <p>Counter: {{ appCounterService.counter }}</p>
+  <button (click)="appCounterService.increase()">+</button>
+  <button (click)="appCounterService.decrease()">-</button>
+</div>
+<div>
+  <p>Local Counter: {{ localCounterService.counter }}</p>
+  <button (click)="localCounterService.increase()">+</button>
+  <button (click)="localCounterService.decrease()">-</button>
 </div>
 <hr />
-<input type="text" [value]="someText" [(ngModel)]="someText" />
-<p>{{ someText }}</p>
+<app-counter></app-counter>
