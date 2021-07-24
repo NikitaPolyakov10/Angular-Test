@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,7 @@ export class AppComponent implements OnInit {
         country: new FormControl('ru'),
         city: new FormControl('Москва', Validators.required),
       }),
+      skills: new FormArray([])
     });
   }
 
@@ -40,7 +43,8 @@ export class AppComponent implements OnInit {
     const city = cityMap[cityKey];
 
     this.form.patchValue({
-      address: { city },
+      address: { city: city },
     });
   }
+
 }
