@@ -1,26 +1,28 @@
-<h1>{{ title }}</h1>
-<div>
-  <span>{{ +number + 10 }}</span>
-  <p>{{ +number }}</p>
-  <p>{{ arr }}</p>
-  <div>
-    <br />
-    <button *ngIf="!defaultImg" (click)="showImg()">Show img</button>
-    <button *ngIf="defaultImg" (click)="changeImg()">Change img</button>
-    <div>
-      <img *ngIf="defaultImg" [src]="defaultImg" alt="img" />
+<div class="container">
+  <h1>Angular HttpClient</h1>
+
+  <div class="card">
+    <div class="form-control">
+      <input type="text" placeholder="Название" [(ngModel)]="todoTitle" />
     </div>
+    <button class="btn" (click)="addTodo()">Добавить</button>
+    <button class="btn" (click)="fetchTodos()">Загрузить</button>
   </div>
-  <input
-    type="text"
-    (keyup.enter)="onInput($event)"
-    [value]="text"
-    placeholder="some text"
-  />
-  <p>{{ text }}</p>
-  <p>{{ counter }}</p>
-  <button (click)="incrementCounter()">Click me</button>
+
+  <hr />
+  <app-loader *ngIf="loading"></app-loader>
+  <div *ngIf="!loading">
+    <div class="card" *ngFor="let item of todos">
+      <p>
+        <span [class.completed]="item.completed">{{ item.title }}</span>
+        <span>
+          <button class="btn btn-danger" (click)="removeTodo(item.id)">
+            Удалить
+          </button>
+          <button class="btn">Завершить</button>
+        </span>
+      </p>
+    </div>
+    <p *ngIf="!todos.length">No todos. Add new todo!</p>
+  </div>
 </div>
-<hr />
-<input type="text" [value]="someText" [(ngModel)]="someText" />
-<p>{{ someText }}</p>
