@@ -1,26 +1,21 @@
-<h1>{{ title }}</h1>
-<div>
-  <span>{{ +number + 10 }}</span>
-  <p>{{ +number }}</p>
-  <p>{{ arr }}</p>
-  <div>
-    <br />
-    <button *ngIf="!defaultImg" (click)="showImg()">Show img</button>
-    <button *ngIf="defaultImg" (click)="changeImg()">Change img</button>
-    <div>
-      <img *ngIf="defaultImg" [src]="defaultImg" alt="img" />
-    </div>
+<nav class="navbar">
+  <h1>
+    <a routerLink="/">Angular Routing</a>
+  </h1>
+  <ul>
+    <li routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+      <a routerLink="/">Home</a>
+    </li>
+    <li routerLinkActive="active"><a routerLink="/posts">Posts</a></li>
+    <li routerLinkActive="active"><a routerLink="/about">About</a></li>
+    <li><button class="btn">Login</button></li>
+    <li><button class="btn">Logout</button></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <router-outlet></router-outlet>
   </div>
-  <input
-    type="text"
-    (keyup.enter)="onInput($event)"
-    [value]="text"
-    placeholder="some text"
-  />
-  <p>{{ text }}</p>
-  <p>{{ counter }}</p>
-  <button (click)="incrementCounter()">Click me</button>
 </div>
-<hr />
-<input type="text" [value]="someText" [(ngModel)]="someText" />
-<p>{{ someText }}</p>
