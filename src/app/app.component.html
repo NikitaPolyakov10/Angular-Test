@@ -10,19 +10,28 @@
   </div>
 
   <hr />
-  <app-loader *ngIf="loading"></app-loader>
-  <div *ngIf="!loading">
-    <div class="card" *ngFor="let item of todos">
-      <p>
-        <span [class.completed]="item.completed">{{ item.title }}</span>
-        <span>
-          <button class="btn btn-danger" (click)="removeTodo(item.id)">
-            Удалить
-          </button>
-          <button class="btn">Завершить</button>
-        </span>
-      </p>
+  <p *ngIf="error; else contentBlock" [class.failure]="error">{{ error }}</p>
+  <ng-template #contentBlock>
+    <app-loader *ngIf="loading"></app-loader>
+    <div *ngIf="!loading">
+      <div class="card" *ngFor="let item of todos">
+        <p>
+          <span [class.completed]="item.completed">{{ item.title }}</span>
+          <span>
+            <button class="btn btn-danger" (click)="removeTodo(item.id)">
+              Удалить
+            </button>
+            <button
+              class="btn"
+              (click)="completeTodo(item.id)"
+              [disabled]="item.completed"
+            >
+              Завершить
+            </button>
+          </span>
+        </p>
+      </div>
+      <p *ngIf="!todos.length">No todos. Add new todo!</p>
     </div>
-    <p *ngIf="!todos.length">No todos. Add new todo!</p>
-  </div>
+  </ng-template>
 </div>
